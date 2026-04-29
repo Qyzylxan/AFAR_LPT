@@ -1,0 +1,4 @@
+C:\Users\a.tan\Documents\programy\visualstudio\AFAR_LPT\AFAR_LPT\obj\Debug\net10.0\AFAR_LPT.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\a.tan\Documents\programy\visualstudio\AFAR_LPT\AFAR_LPT\obj\Debug\net10.0\AFAR_LPT.AssemblyInfoInputs.cache
+C:\Users\a.tan\Documents\programy\visualstudio\AFAR_LPT\AFAR_LPT\obj\Debug\net10.0\AFAR_LPT.AssemblyInfo.cs
+C:\Users\a.tan\Documents\programy\visualstudio\AFAR_LPT\AFAR_LPT\obj\Debug\net10.0\AFAR_LPT.csproj.CoreCompileInputs.cache

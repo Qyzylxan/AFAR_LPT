@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\a.tan\\Documents\\programy\\visualstudio\\AFAR_LPT\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{00BD8F18-162A-4568-A3B7-CE877DD34B79}|AFAR_LPT\\AFAR_LPT.csproj|c:\\users\\a.tan\\documents\\programy\\visualstudio\\afar_lpt\\afar_lpt\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{00BD8F18-162A-4568-A3B7-CE877DD34B79}|AFAR_LPT\\AFAR_LPT.csproj|solutionrelative:afar_lpt\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\a.tan\\Documents\\programy\\visualstudio\\AFAR_LPT\\AFAR_LPT\\Program.cs",
+              "RelativeDocumentMoniker": "AFAR_LPT\\Program.cs",
+              "ToolTip": "C:\\Users\\a.tan\\Documents\\programy\\visualstudio\\AFAR_LPT\\AFAR_LPT\\Program.cs",
+              "RelativeToolTip": "AFAR_LPT\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-29T17:49:39.029Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
