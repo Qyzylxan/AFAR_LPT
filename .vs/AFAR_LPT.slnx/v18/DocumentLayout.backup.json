@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\a.tan\\Documents\\programy\\visualstudio\\AFAR_LPT\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{E3F360E0-9F16-B3C6-E56F-9A6DBFF30CE5}|AFAR_LPT\\AFAR_LPT.csproj|c:\\users\\a.tan\\documents\\programy\\visualstudio\\afar_lpt\\afar_lpt\\muaf.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E3F360E0-9F16-B3C6-E56F-9A6DBFF30CE5}|AFAR_LPT\\AFAR_LPT.csproj|solutionrelative:afar_lpt\\muaf.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{E3F360E0-9F16-B3C6-E56F-9A6DBFF30CE5}|AFAR_LPT\\AFAR_LPT.csproj|c:\\users\\a.tan\\documents\\programy\\visualstudio\\afar_lpt\\afar_lpt\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E3F360E0-9F16-B3C6-E56F-9A6DBFF30CE5}|AFAR_LPT\\AFAR_LPT.csproj|solutionrelative:afar_lpt\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -19,12 +23,25 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "MUAF.cs",
+              "DocumentMoniker": "C:\\Users\\a.tan\\Documents\\programy\\visualstudio\\AFAR_LPT\\AFAR_LPT\\MUAF.cs",
+              "RelativeDocumentMoniker": "AFAR_LPT\\MUAF.cs",
+              "ToolTip": "C:\\Users\\a.tan\\Documents\\programy\\visualstudio\\AFAR_LPT\\AFAR_LPT\\MUAF.cs",
+              "RelativeToolTip": "AFAR_LPT\\MUAF.cs",
+              "ViewState": "AgIAAEAAAAAAAAAAAAAgwGcAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-30T09:24:17.116Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\a.tan\\Documents\\programy\\visualstudio\\AFAR_LPT\\AFAR_LPT\\Program.cs",
               "RelativeDocumentMoniker": "AFAR_LPT\\Program.cs",
               "ToolTip": "C:\\Users\\a.tan\\Documents\\programy\\visualstudio\\AFAR_LPT\\AFAR_LPT\\Program.cs",
               "RelativeToolTip": "AFAR_LPT\\Program.cs",
-              "ViewState": "AgIAAB8AAAAAAAAAAAAgwEwAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-29T17:49:39.029Z",
               "EditorCaption": ""

@@ -1,19 +1,18 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO.Ports;
-using System.Threading;
+using System.Text;
 
 namespace AFAR_LPT
 {
-    class Program
+    public static class MUAF
     {
         private static SerialPort port;
         private static int N = 6; // количество бит в управляющем слове по умолчанию
         private static int Mask;
 
-        static void Main(string[] args)
-        {
-            MUAF.Program(port, N, Mask);
-            return;
+
+        public static void Program(SerialPort port,int N, int Mask) {
 
 
             bool Exit;  // флаг выхода из программы
@@ -26,7 +25,7 @@ namespace AFAR_LPT
 
             // Параметры COM-порта 
             string comPortName = "COM6";
-            int baudRate = 9600;          
+            int baudRate = 9600;
             Parity parity = Parity.None;
             int dataBits = 8;
             StopBits stopBits = StopBits.One;
@@ -91,17 +90,18 @@ namespace AFAR_LPT
             for (int i = 0; i < N; i++)
                 Mask |= (1 << i);   // формируем маску для заданнго количества разрядов
 
-            do
+            while (!Exit) //do
             {
-                //Command = "";
-                Console.WriteLine("Доступные команды: \n" +
-                    "A - команда записи в аттенюаторы\n" +
-                    "F - команда записи в фазовращатели\n" +
-                    "C - команда одновременной записи\n" +
-                    "E/Q - команды выхода\n" +
-                    " Введите команду: ");
+                
                 if (State != 3)     // если ждем данных, не отрабатываем
                 {
+                    //Command = "";
+                    Console.WriteLine("Доступные команды: \n" +
+                        "A - команда записи в аттенюаторы\n" +
+                        "F - команда записи в фазовращатели\n" +
+                        "C - команда одновременной записи\n" +
+                        "E/Q - команды выхода\n" +
+                        " Введите команду: ");
                     Command = Console.ReadLine().ToCharArray();     // читаем введенное слово до пробела
                 }
                 switch (State)
@@ -146,8 +146,9 @@ namespace AFAR_LPT
                         Console.WriteLine("команда принята, читаем первый аргумент");
                         Console.Write($"{Command} = ");
                         printCharArray(Command);
-                        
-                        for (int i = 1; i < Command.Length; i++){
+
+                        for (int i = 1; i < Command.Length; i++)
+                        {
                             if (Char.IsDigit(Command[i]))
                             {
                                 N_Module = Command[i];
@@ -241,7 +242,7 @@ namespace AFAR_LPT
                         break;
                 }
             }
-            while (!Exit);
+            //while (!Exit);
 
             Console.WriteLine("end working!");
             port?.Close();
@@ -344,8 +345,10 @@ namespace AFAR_LPT
             Thread.Sleep(1); // примерно 1 мс, в оригинале был пустой цикл
         }
 
-        static void printCharArray(char[] arr) {
-            foreach (char a in arr) {
+        static void printCharArray(char[] arr)
+        {
+            foreach (char a in arr)
+            {
                 Console.Write(a + ", ");
             }
             Console.WriteLine();
