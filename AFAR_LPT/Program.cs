@@ -12,15 +12,16 @@ namespace AFAR
 
         static void Main(string[] args)
         {
-            bool Exit = false;
-            int State = 0;
-            int Cmd = 0;
-            int N_Module = 0;
+            bool Exit = false;  // флаг выхода из программы
+            string Command;     // буфер промежуточного хранения команды
+            int State = 0;      // состояние анализатора команды
+            int Cmd = 0;        // код команды
+            int N_Module = 0;   // количество модулей
             int[] Data = null;
             int DataCounter = 0;
 
             // Параметры COM-порта 
-            string comPortName = "COM9";
+            string comPortName = "COM6";
             int baudRate = 9600;          
             Parity parity = Parity.None;
             int dataBits = 8;
@@ -45,7 +46,6 @@ namespace AFAR
                     port.DataBits = dataBits;
                     port.StopBits = stopBits;
                     port.WriteTimeout = 1000;
-
                     port.Open();
 
                     Console.WriteLine($"port {args1[0]} is being used");
@@ -75,22 +75,23 @@ namespace AFAR
                 return;
             }
 
+            Console.Write("\n>");
+
             // Формирование маски для заданного количества разрядов
             Mask = 1;
             for (int i = 0; i < N; i++)
-                Mask |= (1 << i);
-
-            Console.Write("\n>");
+                Mask |= (1 << i);   // формируем маску для заданнго количества разрядов
 
             do
             {
-                string Command = "";
+                Command = "";
 
-                if (State != 3)
+                Console.WriteLine("Введите комманду: ");
+                if (State != 3)     // если ждем данных, не отрабатываем
                 {
-                    Command = Console.ReadLine()?.Trim() ?? "";
+                    Command = Console.ReadLine()?.Trim() ?? "";     // читаем введенное слово до пробела
 
-                    // Разбиваем строку на части по пробелам
+                    // Разбиение строки на части по пробелам
                     string[] parts = Command.Split(new[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries);
 
                     foreach (string part in parts)
@@ -101,7 +102,7 @@ namespace AFAR
                 }
                 else
                 {
-                    // В состоянии 3 данные уже есть, просто выполняем команду
+                    // В состоянии 3 данные уже есть => выполнение команды
                     ExecuteCommand(Cmd, N_Module, Data, ref State, ref Cmd, ref N_Module, ref DataCounter);
                 }
             }
