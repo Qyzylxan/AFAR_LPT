@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AFAR_LPT")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3bd7ccbd333fd466807837e76c4212b3543ad4d7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5ee09f9e23166da1aff5154ca50c88d642c4e488")]
 [assembly: System.Reflection.AssemblyProductAttribute("AFAR_LPT")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AFAR_LPT")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

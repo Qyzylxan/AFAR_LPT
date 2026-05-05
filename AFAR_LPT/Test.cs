@@ -19,7 +19,7 @@ namespace AFAR_LPT
             bool Exit = false;
             // Параметры COM-порта 
             string comPortName1 = "COM6";
-            string comPortName2 = "COM7";
+            string comPortName2 = "COM4";
 
             int baudRate = 9600;
 
@@ -91,7 +91,7 @@ namespace AFAR_LPT
             catch
             {
                 Console.WriteLine($"port {portName} could not be open");
-                return null;
+                return port;
             }
         }
 
