@@ -15,13 +15,21 @@ namespace AFAR_LPT
             bool work = true;
             ConsoleKey key;
             while(work) {
-                Console.Write("\nВыбор режима работы: \n 1 - Запись в МУАФ \n 2 - Тест двух преобразователей \n Q - выход");
+                Console.Write("\nВыбор режима работы: \n " +
+                    "1 - Тест одного преобразователя \n " +
+                    "2 - Тест двух преобразователей \n " +
+                    "3 - Запись в МУАФ \n " +
+                    "4 - Бегущие огни на преобразователе \n " +
+                    "Q - выход");
+
                 Console.Write("\n> ");
                 key = Console.ReadKey().Key;
                 Console.WriteLine();
                 switch (key) {
-                    case ConsoleKey.D1: MUAF.Program(port, N, Mask); break;
-                    case ConsoleKey.D2: Test.Start(); break;
+                    case ConsoleKey.D1: Test.Start1(); break;
+                    case ConsoleKey.D2: Test.Start2(); break;
+                    case ConsoleKey.D3: MUAF.Program(port, N, Mask); break;
+                    case ConsoleKey.D4: Test.RunningLights(); break;
                     case ConsoleKey.Q: work = false; break;
                     default: break;
                 }
