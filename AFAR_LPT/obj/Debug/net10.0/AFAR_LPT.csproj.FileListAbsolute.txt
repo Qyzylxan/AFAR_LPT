@@ -70,3 +70,5 @@ C:\Users\a.tan\Documents\programy\visualstudio\AFAR_LPT\AFAR_LPT\obj\Debug\net10
 C:\Users\a.tan\Documents\programy\visualstudio\AFAR_LPT\AFAR_LPT\obj\Debug\net10.0\AFAR_LPT.pdb
 C:\Users\a.tan\Documents\programy\visualstudio\AFAR_LPT\AFAR_LPT\obj\Debug\net10.0\AFAR_LPT.genruntimeconfig.cache
 C:\Users\a.tan\Documents\programy\visualstudio\AFAR_LPT\AFAR_LPT\obj\Debug\net10.0\ref\AFAR_LPT.dll
+C:\Users\a.tan\Documents\programy\visualstudio\AFAR_LPT\AFAR_LPT\bin\Debug\net10.0\FTD2XX_NET.dll
+C:\Users\a.tan\Documents\programy\visualstudio\AFAR_LPT\AFAR_LPT\bin\Debug\net10.0\FTD2XX_NET.xml

@@ -10,11 +10,14 @@ namespace AFAR_LPT
         private static int N = 6; // количество бит в управляющем слове по умолчанию
         private static int Mask;
 
-        static void Main(string[] args)
-        {
-            bool work = true;
+
+        public static void SelectProgram(ConsoleKey ftMode) {
             ConsoleKey key;
-            while(work) {
+            bool work = true;
+            // Выбор программы
+            while (work)
+            {
+
                 Console.Write("\nВыбор режима работы: \n " +
                     "1 - Тест одного преобразователя \n " +
                     "2 - Тест двух преобразователей \n " +
@@ -25,15 +28,65 @@ namespace AFAR_LPT
                 Console.Write("\n> ");
                 key = Console.ReadKey().Key;
                 Console.WriteLine();
-                switch (key) {
-                    case ConsoleKey.D1: Test.Start1(); break;
-                    case ConsoleKey.D2: Test.Start2(); break;
-                    case ConsoleKey.D3: MUAF.Program(port, N, Mask); break;
-                    case ConsoleKey.D4: Test.RunningLights(); break;
-                    case ConsoleKey.Q: work = false; break;
-                    default: break;
+               if (ftMode == ConsoleKey.D1)
+                {
+
+                    switch (key)
+                    {
+                        case ConsoleKey.D1: Test.Start1(); break;
+                        case ConsoleKey.D2: Test.Start2(); break;
+                        case ConsoleKey.D3: MUAF.Program(port, N, Mask); break;
+                        case ConsoleKey.D4: Test.RunningLights(); break;
+                        case ConsoleKey.Q: work = false; break;
+                        default: break;
+                    }
+                }
+                else if (ftMode == ConsoleKey.D2)
+                {
+
+                    switch (key)
+                    {
+                        case ConsoleKey.D1: Test_D2XX.Start1(); break;
+                        case ConsoleKey.D2: Test_D2XX.Start2(); break;
+                        case ConsoleKey.D3: MUAF.Program(port, N, Mask); break;
+                        case ConsoleKey.D4: Test_D2XX.RunningLights(); break;
+                        case ConsoleKey.Q: work = false; break;
+                        default: break;
+                    }
                 }
             }
+
+        }
+
+
+        static void Main(string[] args)
+        {
+            
+            ConsoleKey ftMode;
+            bool FT_ModeSelect = true;
+
+
+
+            // Выбор режима работы Преобразователя
+            while (FT_ModeSelect)
+            {  
+                Console.Write("\nВыбор режима работы преобразователя: \n " +
+                    "1 - Синхронный по COM-порту, с внешним тактированием\n " +
+                    "2 - Асинхронный с помощью драйвера D2XX \n " +
+                    "Q - выход");
+                Console.WriteLine();
+
+                ftMode = Console.ReadKey().Key;                
+                switch (ftMode)
+                {
+                    case ConsoleKey.D1: SelectProgram(ftMode); break;
+                    case ConsoleKey.D2: SelectProgram(ftMode); break;
+                    case ConsoleKey.Q: FT_ModeSelect = false; break;
+                    default: break;
+                }
+
+            }
+
             return;
 
 

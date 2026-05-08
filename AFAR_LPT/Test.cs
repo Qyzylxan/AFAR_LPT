@@ -11,6 +11,7 @@ namespace AFAR_LPT
         private static SerialPort port2 = new SerialPort();
         private static int N = 6; // количество бит в управляющем слове по умолчанию
 
+
         // ------------------------------- Тест записи данных по линии ПК - Преобр
         public static void Start1()
         {
@@ -45,7 +46,7 @@ namespace AFAR_LPT
                 Thread.Sleep(500);
                 Console.WriteLine($"Тест №{count}:");
 
-                WriteCommand(port1, commandBytes);
+                WriteCommand(port1, commandBytes, out Exit);
 
 
                 Console.WriteLine("Принято");
@@ -101,9 +102,9 @@ namespace AFAR_LPT
                 Thread.Sleep(500);
                 Console.WriteLine($"Тест №{count}:");
 
-                WriteCommand(port1, commandBytes);
+                WriteCommand(port1, commandBytes, out Exit);
 
-                ReadCommand(port2, accepted);
+                ReadCommand(port2, accepted, out Exit);
 
                 Console.WriteLine("accepted: " +  accepted);
 
@@ -129,6 +130,8 @@ namespace AFAR_LPT
         {
 
             Console.WriteLine("\n\t\tТест Преобразователя \"Бегущие огни\"");
+
+            int delay = 200; // задержка в миллисекундах
 
             bool Exit = false;
             // Параметры COM-порта 
@@ -158,14 +161,15 @@ namespace AFAR_LPT
                 for (int i = 0; i < 8; i++)
                 {
                     Console.Write("command: " + Convert.ToString(commandBytes[i], 2).PadLeft(8, '0'));
-                Thread.Sleep(500);
-                //Console.WriteLine($"Тест №{count}:");
+                    Thread.Sleep(delay);
+                    //Console.WriteLine($"Тест №{count}:");
 
-                WriteCommand(port1, commandBytes);
+                    WriteCommand(port1, commandBytes, out Exit);
 
-                Console.WriteLine("\tОК");
+                    Console.WriteLine("\tОК");
 
-                    Thread.Sleep(1000);
+                    Thread.Sleep(delay * 2);
+                    if (Exit == true) return;
                 }
 
                 if (Console.ReadKey().Key == ConsoleKey.Q)
@@ -208,8 +212,8 @@ namespace AFAR_LPT
             }
         }
 
-        static void WriteCommand(SerialPort port, byte[] commandBytes) {
-
+        static void WriteCommand(SerialPort port, byte[] commandBytes, out bool Exit) {
+            Exit = false;
             try
             {
                 if (!port.IsOpen)
@@ -225,12 +229,12 @@ namespace AFAR_LPT
             }
             catch (FileNotFoundException)
             {
-                ChangePortName(port);
+                ChangePortName(port, out Exit);
             }
         }
 
-        static void ReadCommand(SerialPort port, byte[] commandBytes) {
-            
+        static void ReadCommand(SerialPort port, byte[] commandBytes, out bool Exit) {
+            Exit = false;
             try
             {
                 if (!port.IsOpen)
@@ -245,23 +249,32 @@ namespace AFAR_LPT
                 Console.WriteLine(" - Чтение: данные отсутствуют");
             }
             catch (FileNotFoundException) {
-                ChangePortName(port);
+                ChangePortName(port, out Exit);
             }
         }
-        static void ChangePortName(SerialPort port) {
+        static void ChangePortName(SerialPort port, out bool Exit) {
+            Exit = false;
             bool choose = true;
+            ConsoleKey key;
             while (choose)
             {
-                Console.Write($" - порт {port.PortName} недоступен. Сменить? [1] - да, [2] - нет: ");
-                if (Console.ReadKey().Key == ConsoleKey.D2)
+                Console.Write($" - порт {port.PortName} недоступен. Сменить? [1] - да, [2] - нет, [Q] - выход: ");
+                key = Console.ReadKey().Key;
+                if (key == ConsoleKey.D2)
                 {
                     Console.WriteLine();
                     return;
                 }
-                if (Console.ReadKey().Key == ConsoleKey.D1)
+                if (key == ConsoleKey.D1)
                 {
                     Console.WriteLine();
                     choose = !choose;
+                }
+                if (key == ConsoleKey.Q)
+                {
+                    Console.WriteLine();
+                    Exit = true;
+                    return;
                 }
                 Console.WriteLine();
             }
